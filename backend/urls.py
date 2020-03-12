@@ -14,9 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import include, path
-from mathwhiz.challenges import views
 
 
 urlpatterns = [
-    path('api/', include('mathwhiz.challenges.urls')),
+    path('api/', include('backend.challenges.urls')),
 ]

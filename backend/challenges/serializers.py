@@ -1,4 +1,4 @@
-from mathwhiz.challenges.models import Challenge
+from backend.challenges.models import Challenge
 from rest_framework import serializers
 
 
