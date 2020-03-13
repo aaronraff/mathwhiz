@@ -2,9 +2,11 @@ from django.http import Http404
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
+import json
 
 from .models import Challenge
 from .serializers import ChallengeSerializer
+from backend.questions.generate import Generator
 
 
 class ChallengeList(APIView):
@@ -49,3 +51,10 @@ class ChallengeDetail(APIView):
             return Response(serializer.data)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class ChallengeQuestions(APIView):
+    def get(self, request):
+        generator = Generator()
+        qs = generator.generate(10)
+        serialized = json.dumps(qs)
+        return Response(serialized)
