@@ -17,5 +17,7 @@ from django.urls import include, path
 
 
 urlpatterns = [
-    path('api/', include('backend.challenges.urls')),
+    path('api/challenges/', include('backend.challenges.urls')),
+    path('api/questions/', include('backend.questions.urls')),
+    path('api/users/', include('backend.users.urls')),
 ]

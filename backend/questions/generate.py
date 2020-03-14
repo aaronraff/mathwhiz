@@ -2,6 +2,8 @@ import random
 import operator
 from typing import Any, Callable, Dict, List
 
+from .models import Question
+
 
 class Generator():
     min_num = -20
@@ -11,18 +13,19 @@ class Generator():
     def __init__(self):
         random.seed()
 
-    def generate(self, count: int) -> List[Dict[str, Any]]:
+    def generate(self, count: int) -> List[Question]:
         return [self._generate_question() for i in range(count)]
 
-    def _generate_question(self) -> Dict[str, Any]:
+    def _generate_question(self) -> Question:
         num1 = random.randint(self.min_num, self.max_num)
         num2 = random.randint(self.min_num, self.max_num)
         fun = self.operators[random.randint(0, len(self.operators)-1)]
 
-        prompt = '{} {} {}'.format(num1, self._op_to_str(fun), num2)
-        ans = fun(num1, num2)
-        choices = self._generate_choices(ans, 4)
-        return {'prompt': prompt, 'answer': ans, 'choices': choices}
+        question = Question()
+        question.prompt = '{} {} {}'.format(num1, self._op_to_str(fun), num2)
+        question.answer = fun(num1, num2)
+        question.choices = self._generate_choices(question.answer, 4)
+        return question
 
     def _generate_choices(self, real_ans: int, count: int) -> List[int]:
         choices = [real_ans]

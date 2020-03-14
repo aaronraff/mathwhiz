@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'backend.challenges',
+    'backend.questions',
+    'backend.users',
 ]
 
 MIDDLEWARE = [
