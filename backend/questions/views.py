@@ -3,13 +3,21 @@ from rest_framework.views import APIView
 import json
 
 from .models import Question
+from .serializers import QuestionSerializer
 from .generate import Generator
 
 from backend.challenges.models import Challenge
 
 
-class QuestionView(APIView):
+class QuestionListView(APIView):
     generator = Generator()
+
+    def get(self, request, join_code):
+        challenge = Challenge.objects.get(join_code=join_code)
+        questions = Question.objects.filter(challenge=challenge)
+        serialzer = QuestionSerializer(questions, many=True)
+
+        return Response(serialzer.data)
 
     def post(self, request, join_code):
         questions = self.generator.generate(10)

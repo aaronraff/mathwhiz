@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import QuestionView
+from .views import QuestionListView
 
 
 urlpatterns = [
-    path('<join_code>/', QuestionView.as_view()),
+    path('<join_code>/', QuestionListView.as_view()),
 ]
