@@ -16,5 +16,5 @@ class ChallengeList(APIView):
         if serialzer.is_valid(raise_exception=True):
             saved = serialzer.save()
 
-        msg = "Challenge {} created successfully".format(saved.join_code)
+        msg = f"Challenge {saved.join_code} created successfully"
         return Response({"success": msg})

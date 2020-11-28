@@ -23,9 +23,7 @@ class QuestionListView(APIView):
         challenge = Challenge.objects.get(join_code=join_code)
 
         if challenge is None:
-            return Response(
-                "No challenge associated with this code {}".format(join_code)
-            )
+            return Response(f"No challenge associated with this code {join_code}")
 
         for question in questions:
             # Associate this question with the challenge indicated by join_code

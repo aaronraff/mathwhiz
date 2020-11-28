@@ -22,7 +22,7 @@ class Generator:
         fun = self.operators[random.randint(0, len(self.operators) - 1)]
 
         question = Question()
-        question.prompt = "{} {} {}".format(num1, self._op_to_str(fun), num2)
+        question.prompt = f"{num1} {self._op_to_str(fun)} {num2}"
         question.answer = fun(num1, num2)
         question.choices = self._generate_choices(question.answer, 4)
         return question
