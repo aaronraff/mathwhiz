@@ -3,5 +3,5 @@ from .views import ChallengeList
 
 
 urlpatterns = [
-    path('', ChallengeList.as_view()),
+    path("", ChallengeList.as_view()),
 ]

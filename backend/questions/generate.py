@@ -1,11 +1,11 @@
 import random
 import operator
-from typing import Any, Callable, Dict, List
+from typing import Callable, List
 
 from .models import Question
 
 
-class Generator():
+class Generator:
     min_num = -20
     max_num = 20
     operators = [operator.add, operator.sub, operator.mul]
@@ -19,10 +19,10 @@ class Generator():
     def _generate_question(self) -> Question:
         num1 = random.randint(self.min_num, self.max_num)
         num2 = random.randint(self.min_num, self.max_num)
-        fun = self.operators[random.randint(0, len(self.operators)-1)]
+        fun = self.operators[random.randint(0, len(self.operators) - 1)]
 
         question = Question()
-        question.prompt = '{} {} {}'.format(num1, self._op_to_str(fun), num2)
+        question.prompt = "{} {} {}".format(num1, self._op_to_str(fun), num2)
         question.answer = fun(num1, num2)
         question.choices = self._generate_choices(question.answer, 4)
         return question
@@ -31,8 +31,8 @@ class Generator():
         choices = [real_ans]
         choice_count = 0
 
-        while choice_count < (count-1):
-            num = random.randint(real_ans-10, real_ans+10)
+        while choice_count < (count - 1):
+            num = random.randint(real_ans - 10, real_ans + 10)
 
             # Make sure all choices are unique
             if num in choices:
@@ -46,8 +46,8 @@ class Generator():
 
     def _op_to_str(self, op_fun: Callable[[int, int], int]) -> str:
         if op_fun == operator.add:
-            return '+'
+            return "+"
         elif op_fun == operator.sub:
-            return '-'
+            return "-"
         else:
-            return 'x'
+            return "x"

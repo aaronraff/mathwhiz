@@ -7,13 +7,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('challenges', '0005_auto_20200312_1706'),
+        ("challenges", "0005_auto_20200312_1706"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='challenge',
-            name='join_code',
-            field=models.CharField(default=backend.challenges.models.generate_uuid, max_length=37),
+            model_name="challenge",
+            name="join_code",
+            field=models.CharField(
+                default=backend.challenges.models.generate_uuid, max_length=37
+            ),
         ),
     ]

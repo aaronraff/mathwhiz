@@ -1,4 +1,3 @@
-from backend.challenges.models import Challenge
 from rest_framework import serializers
 
 
@@ -14,9 +13,9 @@ class QuestionSerializer(serializers.Serializer):
 
         # Create array from choices, since it's currently a string
         # "[1, 2, 3, 4]" -> a Python list
-        choices = data['choices']
+        choices = data["choices"]
         choices = choices.replace(" ", "")
-        choices = choices[1:len(choices)-1]  # Cut off the brackets
-        choices = choices.split(',')
-        data['choices'] = [int(c) for c in choices]
+        choices = choices[1 : len(choices) - 1]  # Cut off the brackets
+        choices = choices.split(",")
+        data["choices"] = [int(c) for c in choices]
         return data

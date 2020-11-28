@@ -7,13 +7,15 @@ import uuid
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('challenges', '0001_initial'),
+        ("challenges", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='challenge',
-            name='join_code',
-            field=models.CharField(default=uuid.UUID('57e02f4d-7931-406e-ae62-517438a2168d'), max_length=30),
+            model_name="challenge",
+            name="join_code",
+            field=models.CharField(
+                default=uuid.UUID("57e02f4d-7931-406e-ae62-517438a2168d"), max_length=30
+            ),
         ),
     ]

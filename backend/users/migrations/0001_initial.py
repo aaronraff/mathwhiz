@@ -9,16 +9,30 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('challenges', '0007_auto_20200314_0115'),
+        ("challenges", "0007_auto_20200314_0115"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='User',
+            name="User",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=512)),
-                ('challenge', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='challenges.Challenge')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=512)),
+                (
+                    "challenge",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="challenges.Challenge",
+                    ),
+                ),
             ],
         ),
     ]

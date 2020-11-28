@@ -3,5 +3,5 @@ from .views import UserView
 
 
 urlpatterns = [
-    path('<join_code>/', UserView.as_view()),
+    path("<join_code>/", UserView.as_view()),
 ]

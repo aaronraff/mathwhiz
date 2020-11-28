@@ -1,6 +1,5 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
-import json
 
 from .models import Question
 from .serializers import QuestionSerializer
@@ -24,12 +23,13 @@ class QuestionListView(APIView):
         challenge = Challenge.objects.get(join_code=join_code)
 
         if challenge is None:
-            return Response('No challenge associated with this code {}'
-                            .format(join_code))
+            return Response(
+                "No challenge associated with this code {}".format(join_code)
+            )
 
         for question in questions:
             # Associate this question with the challenge indicated by join_code
             question.challenge = challenge
             question.save()
 
-        return Response('Questions generated successfully')
+        return Response("Questions generated successfully")

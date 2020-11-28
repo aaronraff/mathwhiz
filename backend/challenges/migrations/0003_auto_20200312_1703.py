@@ -6,13 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('challenges', '0002_challenge_join_code'),
+        ("challenges", "0002_challenge_join_code"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='challenge',
-            name='join_code',
-            field=models.CharField(default='5f0c9457-c251-404d-ac49-61a9d96b7357', max_length=30),
+            model_name="challenge",
+            name="join_code",
+            field=models.CharField(
+                default="5f0c9457-c251-404d-ac49-61a9d96b7357", max_length=30
+            ),
         ),
     ]

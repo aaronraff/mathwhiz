@@ -7,21 +7,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('challenges', '0006_auto_20200312_2108'),
+        ("challenges", "0006_auto_20200312_2108"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='challenge',
-            name='user_one',
+            model_name="challenge",
+            name="user_one",
         ),
         migrations.RemoveField(
-            model_name='challenge',
-            name='user_two',
+            model_name="challenge",
+            name="user_two",
         ),
         migrations.AlterField(
-            model_name='challenge',
-            name='join_code',
-            field=models.CharField(default=backend.challenges.models.generate_uuid, max_length=512),
+            model_name="challenge",
+            name="join_code",
+            field=models.CharField(
+                default=backend.challenges.models.generate_uuid, max_length=512
+            ),
         ),
     ]

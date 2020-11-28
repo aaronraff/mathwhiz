@@ -3,5 +3,5 @@ from .views import QuestionListView
 
 
 urlpatterns = [
-    path('<join_code>/', QuestionListView.as_view()),
+    path("<join_code>/", QuestionListView.as_view()),
 ]
