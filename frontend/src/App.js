@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import "./tailwind.output.css";
 
 function App() {
   return (
-    <div className="App">
-	  <h1>Test</h1>
+    <div className="text-center my-12 mx-4">
+	    <h1 className="text-3xl font-bold">Mathwhiz</h1>
     </div>
   );
 }
