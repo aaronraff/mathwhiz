@@ -1,7 +1,6 @@
 import React from 'react';
-import "./tailwind.output.css";
 
-function App() {
+function Nav() {
   return (
     <div className="text-center my-12 mx-4">
 	    <h1 className="text-3xl font-bold">Mathwhiz</h1>
@@ -9,4 +8,4 @@ function App() {
   );
 }
 
-export default App;
+export default Nav;
