@@ -12,9 +12,9 @@ class ChallengeList(APIView):
         return Response({"challenges": serialzer.data})
 
     def post(self, request):
-        serializer = ChallengeSerializer(data={})
-        if serializer.is_valid(raise_exception=True):
-            saved = serializer.save()
+        challenge = Challenge()
+        challenge.save()
+        serializer = ChallengeSerializer(challenge)
 
-        msg = f"Challenge {saved.join_code} created successfully"
+        msg = f"Challenge {challenge.join_code} created successfully"
         return Response({"message": msg, "challenge": serializer.data})
