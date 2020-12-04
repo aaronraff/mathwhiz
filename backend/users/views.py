@@ -9,9 +9,9 @@ from backend.challenges.models import Challenge
 
 class UserView(APIView):
     def post(self, request, join_code):
-        challenge = Challenge.objects.get(join_code=join_code)
-
-        if challenge is None:
+        try:
+            challenge = Challenge.objects.get(join_code=join_code)
+        except Challenge.DoesNotExist:
             return Response(
                 {"message": f"No challenge associated with this code {join_code}"},
                 status=status.HTTP_400_BAD_REQUEST,

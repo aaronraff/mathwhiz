@@ -9,8 +9,8 @@ function Home() {
     createChallenge()
       .then(res => res.json())
       .then(data => {
-        const id = data.challenge.id;
-        history.push(`/challenge/${id}`);
+        const joinCode = data.challenge.join_code;
+        history.push(`/challenge/${joinCode}`);
       })
       .catch(err => console.log(err));
   }
